@@ -1,6 +1,21 @@
 import { useState, useEffect } from "react";
 import React from "react";
-// ErrorBoundary component for catching errors in children
+import "prismjs/themes/prism-tomorrow.css"; 
+import Editor from "react-simple-code-editor";
+import Prism from "prismjs";
+import Markdown from "react-markdown";
+import rehypeHighlight from "rehype-highlight";
+import "highlight.js/styles/atom-one-dark.css"; 
+import axios from "axios";
+
+// Import required Prism languages
+import "prismjs/components/prism-clike"; 
+import "prismjs/components/prism-python";
+import "prismjs/components/prism-javascript";
+import "prismjs/components/prism-c";
+import "prismjs/components/prism-cpp"; 
+import "prismjs/components/prism-java";
+
 class ErrorBoundary extends React.Component {
   constructor(props) {
     super(props);
@@ -11,9 +26,6 @@ class ErrorBoundary extends React.Component {
     return { hasError: true };
   }
 
-  componentDidCatch(error, errorInfo) {
-    // You can log error info here if needed
-  }
 
   render() {
     if (this.state.hasError) {
@@ -26,81 +38,19 @@ class ErrorBoundary extends React.Component {
     return this.props.children;
   }
 }
-import "prismjs/themes/prism-tomorrow.css"; // Keep for react-simple-code-editor
-import Editor from "react-simple-code-editor";
-import Prism from "prismjs";
-import Markdown from "react-markdown";
-import rehypeHighlight from "rehype-highlight";
-import "highlight.js/styles/atom-one-dark.css"; // For markdown code blocks
-import axios from "axios";
-
-// Import required Prism languages
-import "prismjs/components/prism-clike"; // Base for C, C++, Java
-import "prismjs/components/prism-python";
-import "prismjs/components/prism-javascript";
-import "prismjs/components/prism-c"; // Specific C support
-import "prismjs/components/prism-cpp"; // Specific C++ support
-import "prismjs/components/prism-java";
-
-// --- Icons (using simple text for now) ---
-const NamingConventionIcon = () => <span className="text-xl">🆎</span>;
-const ScopeErrorIcon = () => <span className="text-xl">🚫</span>;
-const IndentationIcon = () => <span className="text-xl">📏</span>;
-const ErrorHandlingIcon = () => <span className="text-xl">⚠️</span>;
-
-// A simple helper to simulate AI review for demonstration
-const mockReview = {
-  summary: [
-    { type: "Naming Convention", icon: NamingConventionIcon, text: "The function `sum()` is a built-in Python function, so it's not a good idea to use this name for a custom function." },
-    { type: "Scope Error", icon: ScopeErrorIcon, text: "The variables `a` and `b` are not defined within the function or passed as arguments, which will result in a `NameError`." },
-    { type: "Indentation", icon: IndentationIcon, text: "The existing code needs proper indentation (though your example has it)." },
-    { type: "Error Handling", icon: ErrorHandlingIcon, text: "The function does not handle potential errors (e.g., non-numeric inputs)." },
-  ],
-  improvedCode: {
-    python: `def add_numbers(a, b):
-    """
-    This function adds two numbers.
-    """
-    return a + b`,
-    javascript: `function addNumbers(a, b) {
-    // This function adds two numbers.
-    return a + b;
-}`,
-    c: `#include <stdio.h>
-
-int add_numbers(int a, int b) {
-    // This function adds two numbers.
-    return a + b;
-}`,
-    cpp: `#include <iostream>
-
-int add_numbers(int a, int b) {
-    // This function adds two numbers.
-    return a + b;
-}`,
-    java: `class Main {
-    public static int addNumbers(int a, int b) {
-        // This function adds two numbers.
-        return a + b;
-    }
-}`,
-  },
-};
 
 function Review() {
-  // Keeping the default code input as provided by the user
   const [code, setCode] = useState(`def sum(): \n \treturn a + b \n`);
   const [reviewResult, setReviewResult] = useState("");
   const [loading, setLoading] = useState(false);
-  const [language, setLanguage] = useState("python"); // Default language for input
-
+  const [language, setLanguage] = useState("python");
   useEffect(() => {
     Prism.highlightAll();
   }, [code]);
 
   async function reviewCode() {
     setLoading(true);
-    setReviewResult(""); // Clear previous review
+    setReviewResult(""); 
     try {
       const response = await axios.post("http://localhost:3000/ai/get-review/", { code, language });
       setReviewResult(response.data);
@@ -112,7 +62,6 @@ function Review() {
     }
   }
 
-  // Define languages for the input editor (Updated)
   const languageOptions = [
     { value: "python", label: "Python" },
     { value: "javascript", label: "JavaScript" },
@@ -179,7 +128,7 @@ function Review() {
           <button
             onClick={reviewCode}
             disabled={loading}
-            className={`w-full mt-6 py-3 px-6 text-lg font-semibold text-white rounded-lg shadow-lg transform transition duration-300 ease-in-out
+            className={`w-full mt-6 py-3 px-6 text-lg font-semibold rounded-lg shadow-lg transform transition duration-300 ease-in-out
               ${loading
                 ? 'bg-gray-50 text-black opacity-70 cursor-not-allowed animate-pulse'
                 : 'bg-gray-50 text-black  hover:shadow-xl'
@@ -194,7 +143,7 @@ function Review() {
                 Analyzing Code...
               </span>
             ) : (
-              'Review Code ✨'
+              'Review Code'
             )}
           </button>
         </div>
