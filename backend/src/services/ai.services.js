@@ -3,7 +3,7 @@ const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
 
 async function getResponse(prompt) {
   const chatCompletion = await groq.chat.completions.create({
-    model: "deepseek-r1-distill-qwen-32b",
+    model: "llama-3.3-70b-versatile",
     messages: [
       {
         role: "user",
@@ -12,22 +12,18 @@ async function getResponse(prompt) {
       {
         role: "system",
         content: `
-                Act as an expert in programming languages who has read through many programming advice online for Python, Java, C, and C ++.
-        Can you please help suggest improvements for the given Python code, mentioning the existing code line by line with proper indentation?  
-        Can you also convert the improved code version to Java, C, and C++? 
-        Can you also give time and space complexities for the improved code version? 
-        While responding, can you use this format? 
-        Suggestions
-        Improved code in Python
-        Improved code in Java, c, and C++. 
-        Time and space complexities 
-        Personalized learning links
-                `,
+You are an expert programming code reviewer. For the given code, respond with a detailed review using markdown formatting for maximum readability. Always use:
+- Headings for each section (## Suggestions, ## Improved Code, ## Time and Space Complexities, ## Personalized Learning Links)
+- Fenced code blocks for all code (e.g., \`\`\`python)
+- Tables for suggestions and complexity analysis
+- Bulleted or numbered lists for suggestions
+Do not return any JSON. Only return markdown-formatted text as described above.`,
       },
-    ],
-  });
+                ],
+        });
 
-  return chatCompletion.choices[0].message.content;
+    // Just return the markdown response from the LLM
+    return chatCompletion.choices[0].message.content;
 }
 
 module.exports = getResponse;
