@@ -131,7 +131,7 @@ function Review() {
           <button
             onClick={reviewCode}
             disabled={loading}
-            className={`w-full mt-6 py-3 px-6 text-lg font-semibold text-white rounded-lg shadow-lg transform transition duration-300 ease-in-out
+            className={`w-full mt-6 py-3 px-6 text-lg font-semibold  rounded-lg shadow-lg transform transition duration-300 ease-in-out
               ${loading
                 ? 'bg-gray-50 text-black opacity-70 cursor-not-allowed animate-pulse'
                 : 'bg-gray-50 text-black  hover:shadow-xl'
