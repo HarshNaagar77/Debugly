@@ -54,7 +54,7 @@ function Review() {
     setLoading(true);
     setReviewResult(""); 
     try {
-      const response = await axios.post("http://localhost:3000/ai/get-review/", { code, language });
+  const response = await axios.post("https://debuglysever.onrender.com/ai/get-review/", { code, language });
       setReviewResult(response.data);
     } catch (error) {
       setReviewResult("**Error:** Failed to fetch review from API. Check the console for details.");
