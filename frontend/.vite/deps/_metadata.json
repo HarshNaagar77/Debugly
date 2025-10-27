@@ -1,0 +1,106 @@
+{
+  "hash": "86eea2e2",
+  "configHash": "1f745cb6",
+  "lockfileHash": "af45fe9b",
+  "browserHash": "4d509739",
+  "optimized": {
+    "react": {
+      "src": "../../node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "29b8d707",
+      "needsInterop": true
+    },
+    "react-dom/client": {
+      "src": "../../node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "36749e34",
+      "needsInterop": true
+    },
+    "react-router-dom": {
+      "src": "../../node_modules/react-router-dom/dist/index.mjs",
+      "file": "react-router-dom.js",
+      "fileHash": "492736a1",
+      "needsInterop": false
+    },
+    "react-simple-code-editor": {
+      "src": "../../node_modules/react-simple-code-editor/lib/index.js",
+      "file": "react-simple-code-editor.js",
+      "fileHash": "016c7cbb",
+      "needsInterop": true
+    },
+    "prismjs": {
+      "src": "../../node_modules/prismjs/prism.js",
+      "file": "prismjs.js",
+      "fileHash": "792d2df7",
+      "needsInterop": true
+    },
+    "react-markdown": {
+      "src": "../../node_modules/react-markdown/index.js",
+      "file": "react-markdown.js",
+      "fileHash": "4577d7f2",
+      "needsInterop": false
+    },
+    "rehype-highlight": {
+      "src": "../../node_modules/rehype-highlight/index.js",
+      "file": "rehype-highlight.js",
+      "fileHash": "e32881ce",
+      "needsInterop": false
+    },
+    "axios": {
+      "src": "../../node_modules/axios/index.js",
+      "file": "axios.js",
+      "fileHash": "2c64313e",
+      "needsInterop": false
+    },
+    "prismjs/components/prism-clike": {
+      "src": "../../node_modules/prismjs/components/prism-clike.js",
+      "file": "prismjs_components_prism-clike.js",
+      "fileHash": "a048337b",
+      "needsInterop": true
+    },
+    "prismjs/components/prism-python": {
+      "src": "../../node_modules/prismjs/components/prism-python.js",
+      "file": "prismjs_components_prism-python.js",
+      "fileHash": "437dee70",
+      "needsInterop": true
+    },
+    "prismjs/components/prism-javascript": {
+      "src": "../../node_modules/prismjs/components/prism-javascript.js",
+      "file": "prismjs_components_prism-javascript.js",
+      "fileHash": "d64ac8f3",
+      "needsInterop": true
+    },
+    "prismjs/components/prism-c": {
+      "src": "../../node_modules/prismjs/components/prism-c.js",
+      "file": "prismjs_components_prism-c.js",
+      "fileHash": "b84c55b7",
+      "needsInterop": true
+    },
+    "prismjs/components/prism-cpp": {
+      "src": "../../node_modules/prismjs/components/prism-cpp.js",
+      "file": "prismjs_components_prism-cpp.js",
+      "fileHash": "3c488224",
+      "needsInterop": true
+    },
+    "prismjs/components/prism-java": {
+      "src": "../../node_modules/prismjs/components/prism-java.js",
+      "file": "prismjs_components_prism-java.js",
+      "fileHash": "2d124c5d",
+      "needsInterop": true
+    }
+  },
+  "chunks": {
+    "chunk-V7Q5AG4B": {
+      "file": "chunk-V7Q5AG4B.js"
+    },
+    "chunk-TRFV7W5R": {
+      "file": "chunk-TRFV7W5R.js"
+    },
+    "chunk-LQ6CCAHN": {
+      "file": "chunk-LQ6CCAHN.js"
+    },
+    "chunk-DC5AMYBS": {
+      "file": "chunk-DC5AMYBS.js"
+    }
+  }
+}

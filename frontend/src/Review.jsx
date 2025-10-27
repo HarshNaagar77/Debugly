@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
 import React from "react";
-import "prismjs/themes/prism-tomorrow.css"; 
+import "prismjs/themes/prism-tomorrow.css"; // Keep for react-simple-code-editor
 import Editor from "react-simple-code-editor";
 import Prism from "prismjs";
 import Markdown from "react-markdown";
 import rehypeHighlight from "rehype-highlight";
-import "highlight.js/styles/atom-one-dark.css"; 
+import "highlight.js/styles/atom-one-dark.css"; // For markdown code blocks
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
-// Import required Prism languages
 import "prismjs/components/prism-clike"; 
 import "prismjs/components/prism-python";
 import "prismjs/components/prism-javascript";
@@ -40,6 +40,8 @@ class ErrorBoundary extends React.Component {
 }
 
 function Review() {
+  const navigate = useNavigate();
+  // Keeping the default code input as provided by the user
   const [code, setCode] = useState(`def sum(): \n \treturn a + b \n`);
   const [reviewResult, setReviewResult] = useState("");
   const [loading, setLoading] = useState(false);
@@ -62,6 +64,7 @@ function Review() {
     }
   }
 
+  // Define languages for the input editor (Updated)
   const languageOptions = [
     { value: "python", label: "Python" },
     { value: "javascript", label: "JavaScript" },
@@ -74,7 +77,7 @@ function Review() {
     <ErrorBoundary>
     <div className="flex flex-col  min-h-screen bg-zinc-950 text-gray-100 p-6 font-sans">
       {/* Header - Stays centered above the grid */}
-      <header className="w-full pl-5 py-5 mb-8 text-4xl font-extrabold  bg-zinc-900 rounded-xl shadow-2xl">
+      <header className=" cursor-pointer w-full pl-5 py-5 mb-8 text-4xl font-extrabold  bg-zinc-900 rounded-xl shadow-2xl" onClick={() => {navigate("/")}}>
         DebugLY
       </header>
 
@@ -128,7 +131,7 @@ function Review() {
           <button
             onClick={reviewCode}
             disabled={loading}
-            className={`w-full mt-6 py-3 px-6 text-lg font-semibold rounded-lg shadow-lg transform transition duration-300 ease-in-out
+            className={`w-full mt-6 py-3 px-6 text-lg font-semibold text-white rounded-lg shadow-lg transform transition duration-300 ease-in-out
               ${loading
                 ? 'bg-gray-50 text-black opacity-70 cursor-not-allowed animate-pulse'
                 : 'bg-gray-50 text-black  hover:shadow-xl'
@@ -143,7 +146,7 @@ function Review() {
                 Analyzing Code...
               </span>
             ) : (
-              'Review Code'
+              'Review Code ✨'
             )}
           </button>
         </div>

@@ -15,7 +15,7 @@ const Hero = () => {
             <div class="flex items-center justify-between">
                 <div class="flex-shrink-0">
                     <a href="#" title="" class="flex rounded outline-none focus:ring-1 focus:ring-gray-900 focus:ring-offset-2">
-                        <h1 className=' text-3xl mb-0'>Debugly</h1>
+                        <h1 className=' text-3xl mb-0 font-bold pt-5'>Debugly</h1>
                     </a>
                 </div>
         </div>
