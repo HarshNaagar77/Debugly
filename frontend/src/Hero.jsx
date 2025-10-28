@@ -36,7 +36,7 @@ const Hero = () => {
                                 <img class="inline-block rounded-full w-14 h-14 ring-2 ring-white" src="https://d33wubrfki0l68.cloudfront.net/8a2efb13f103a5ae2909e244380d73087a9c2fc4/31ed6/images/hero/3/avatar-female-2.png" alt="" />
                             </div>
 
-                            <p class="mt-4 text-lg text-gray-900 lg:mt-0 lg:ml-4 font-pj">Join with <span class="font-bold">4600+ Developers</span> and start getting feedbacks right now</p>
+                            <p class="mt-4 text-lg text-gray-900 lg:mt-0 lg:ml-4 font-pj">Get personalized code reviews<span class="font-bold">Try it now!</span></p>
                         </div>
                     </div>
 
@@ -47,7 +47,7 @@ const Hero = () => {
                             className="inline-flex items-center px-8 py-4 text-lg font-bold text-white transition-all duration-200 bg-gray-900 border border-transparent rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 font-pj justif-center hover:bg-gray-600"
                             onClick={() => navigate('/review')}
                         >
-                            Get feedback
+                            Review Now
                         </button>
 
                     </div>
