@@ -5,6 +5,7 @@ import Editor from "react-simple-code-editor";
 import Prism from "prismjs";
 import Markdown from "react-markdown";
 import rehypeHighlight from "rehype-highlight";
+import remarkGfm from "remark-gfm";
 import "highlight.js/styles/atom-one-dark.css"; // For markdown code blocks
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -54,7 +55,7 @@ function Review() {
     setLoading(true);
     setReviewResult(""); 
     try {
-  const response = await axios.post("https://debuglysever.onrender.com/ai/get-review/", { code, language });
+      const response = await axios.post("http://localhost:3000/ai/get-review", { code, language });
       setReviewResult(response.data);
     } catch (error) {
       setReviewResult("**Error:** Failed to fetch review from API. Check the console for details.");
@@ -162,7 +163,7 @@ function Review() {
               Analyzing code and generating review...
             </div>
           ) : reviewResult ? (
-            <Markdown rehypePlugins={[rehypeHighlight]} className="prose prose-invert max-w-none">{reviewResult}</Markdown>
+            <Markdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeHighlight]} className="prose prose-invert max-w-none prose-pre:bg-zinc-950 prose-pre:border prose-pre:border-zinc-800">{reviewResult}</Markdown>
           ) : (
             <div className="flex items-center justify-center h-full text-lg text-gray-500 text-center p-4">
               The AI review summary and improved code will appear here after analysis.
