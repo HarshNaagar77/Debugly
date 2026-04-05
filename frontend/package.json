@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tailwindcss/typography": "^0.5.19",
     "axios": "^1.7.9",
     "prismjs": "^1.29.0",
     "react": "^19.0.0",
@@ -17,7 +18,8 @@
     "react-markdown": "^9.0.3",
     "react-router-dom": "^7.9.4",
     "react-simple-code-editor": "^0.14.1",
-    "rehype-highlight": "^7.0.2"
+    "rehype-highlight": "^7.0.2",
+    "remark-gfm": "^4.0.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.19.0",
